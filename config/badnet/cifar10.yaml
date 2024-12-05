@@ -1,0 +1,28 @@
+amp: False
+device: cuda
+attack_label_trans: all2one
+attack_target: 0
+client_optimizer: sgd
+dataset: cifar10
+dataset_path: ../data
+frequency_save: 100
+batch_size: 128
+lr: 0.01
+lr_scheduler: CosineAnnealingLR
+model: preactresnet18
+pratio: 0.1
+random_seed: 2022
+sgd_momentum: 0.9
+wd: 0.0005
+attack: fix_patch
+
+patch_mask_path: ../resource/badnet/bottom_right_4by4_color.npy
+epochs: 100
+
+# defense
+purify_batch_size: 1024
+steps_T: 150
+rounds_n: 5
+last_steps_m: 10
+threshold_tau: 5
+ft_lr: 0.002
